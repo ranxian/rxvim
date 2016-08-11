@@ -9,4 +9,6 @@ The vim settings just for RX
 
 `echo "source ~/.vim/vimrc" >> ~/.vimrc`
 
+`mkdir ~/.vim/.undodir`
+
 open vim, and do `BundleInstall!`
