@@ -28,6 +28,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'mbbill/undotree'
 Plugin 'Rip-Rip/clang_complete'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/vimproc.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,10 +85,6 @@ set hlsearch
 set incsearch
 set showcmd
 set scrolloff=1
-
-filetype on
-filetype plugin on
-filetype indent on
 
 let g:miniBufExplTabWrap=1
 let g:miniBufExplUseSingleClick=1
@@ -153,7 +152,7 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -312,3 +311,19 @@ let g:clang_auto_select = 0
 let g:clang_default_keymappings = 1
 let g:clang_use_library = 1
 let g:AutoPairsMapCR = 0
+map <leader>t :TagbarToggle<CR>
+
+imap <silent><CR> <CR><Plug>AutoPairsReturn
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
