@@ -5,8 +5,12 @@ The vim settings just for RX
 
 ## Install
 
-`git clone https://github.com/ranxian/rxvim.git ~/.vim`
+`git clone --recursive https://github.com/ranxian/rxvim.git ~/.vim`
 
 `echo "source ~/.vim/vimrc" >> ~/.vimrc`
 
-open vim, and do `BundleInstall!`
+`vim -u ~/.vim/vimrc +set nomore +BundleInstall!`
+
+or 
+
+`curl raw.githubusercontent.com/ranxian/rxvim/master/rxvim-install.sh -L > rxvim-install.sh && sh rxvim-install.sh`
