@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -126,6 +127,7 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"imap <silent><leader> <CR><Plug>AutoPairsReturn
 
 function! s:my_cr_function()
   " For no inserting <CR> key.
@@ -295,7 +297,6 @@ augroup END
 let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 let g:clang_default_keymappings=0
 
-
 if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
@@ -314,7 +315,6 @@ let g:clang_use_library = 1
 let g:AutoPairsMapCR = 0
 map <leader>t :TagbarToggle<CR>
 
-imap <silent><CR> <CR><Plug>AutoPairsReturn
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
@@ -328,3 +328,5 @@ nnoremap <C-n> :call NumberToggle()<cr>
 :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+nmap B ^i
+imap jk <esc>
