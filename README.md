@@ -7,6 +7,8 @@ The vim settings just for RX
 
 `git clone --recursive https://github.com/ranxian/rxvim.git ~/.vim`
 
+`~/.vim/.undodir/`
+
 `echo "source ~/.vim/vimrc" >> ~/.vimrc`
 
 `vim -u ~/.vim/vimrc +set nomore +BundleInstall!`
