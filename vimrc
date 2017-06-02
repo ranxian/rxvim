@@ -274,7 +274,7 @@ if has("persistent_undo")
   set undoreload=10000
 endif
 
-set spell
+"set spell
 set iskeyword-=.
 set iskeyword-=#
 set iskeyword-=-
@@ -293,7 +293,16 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+		let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+    " Do Mac stuff here
+  else
+	 	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.8.so.1'
+  endif
+endif
+
 let g:clang_default_keymappings=0
 
 if !exists('g:neocomplete#force_omni_input_patterns')
