@@ -78,7 +78,7 @@ set expandtab
 set number "show line numbers
 
 syntax enable
-colorscheme brogrammer
+" colorscheme brogrammer
 
 set foldmethod=indent
 set foldmethod=marker
