@@ -9,3 +9,5 @@ if [ -d "~/.vim/.undodir" ]; then
 fi
 
 vim -u ~/.vim/vimrc +set nomore +BundleInstall +qall!
+# After that, add our color scheme configuration
+echo "colorscheme brogrammer" >> ~/.vim/vimrc
