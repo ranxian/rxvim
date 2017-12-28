@@ -12,7 +12,8 @@ Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/syntastic'
+" For syntactic errors
+"Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/pythoncomplete'
 Plugin 'vim-scripts/python_match.vim'
 Plugin 'jiangmiao/auto-pairs'
@@ -32,6 +33,8 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -258,7 +261,8 @@ augroup CloseIfOnlyControlWinLeft
   au!
   au BufEnter * call s:CloseIfOnlyControlWinLeft()
 augroup END
-autocmd VimEnter * NERDTree
+" uncomment to enable nerdtree by default
+" autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 let g:airline#extensions#tabline#enabled = 1
 let c = 1
@@ -338,3 +342,9 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 nmap B ^i
 imap jk <esc>
+colorscheme brogrammer
+" Easier navigation between panes
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
